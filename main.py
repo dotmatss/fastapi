@@ -20,9 +20,9 @@ def read_root():
 def read_items(skip: int = 0, limit: int = 10):
     return list(items.values())[skip: skip + limit]
 
-    @app.get('/sampu')
-    def red_sampu():
-        return {"sampu": "ten"}
+@app.get('/sampu/')
+async def red_sampu():
+    return {"sampu": "ten"}
 
 @app.get('/banana/')
 def read_banana():
