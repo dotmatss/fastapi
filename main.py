@@ -16,6 +16,10 @@ class Item(BaseModel):
 def read_root():
     return {"Hello": "World"}
 
+@app.get("/items/")
+def read_items(skip: int = 0, limit: int = 10):
+    return list(items.values())[skip: skip + limit]
+
 @app.get("/items/{item_id}")
 def read_item(item_id: int):
     if item_id not in items:
